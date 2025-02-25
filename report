@@ -1,0 +1,6 @@
+Reporting several problems confronting me while developing Hultagram, particularly one where immediately after the successful message that said the comments had been added, they were not being fetched for displaying to the user.
+I had to explicitly retrieve them in post_detail() instead of post.comments to solve the issue; because of the way comments were getting fetched.
+The like button didn't function properly either since it allowed multiple likes and unlike toggles didn't work.
+The Like model wasn't being accurately referenced and it was not determining whether someone had already liked the post, so to fix that I made such changes.
+Another problem I saw was that logging out redirecting users to the login page instead of the homepage, so I defined the logout() method to redirect them to / where they could select to log in or register. 
+Finally, I added an entry called "See Posts" in the navbar so that it becomes easier to navigate back to the main feed without much hassle.
