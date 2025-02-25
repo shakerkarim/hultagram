@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Hultagram</h1>
+    {% for post in posts %}
+        <div>
+            <img src="{{ url_for('static', filename='uploads/' + post.image_filename) }}" width="300px">
+            <p>{{ post.caption }}</p>
+            <p>{{ post.likes }} Likes</p>
+            <form action="{{ url_for('like_post', post_id=post.id) }}" method="POST">
+                <button type="submit">Like</button>
+            </form>
+            <a href="{{ url_for('post_detail', post_id=post.id) }}">View Details</a>
+        </div>
+    {% endfor %}
+{% endblock %}
